@@ -1,0 +1,63 @@
+:root{
+  --bg:#FFF8EC; --surface:#FFFFFF; --ink:#2B1B3D; --muted:#6B5B7B; --line:#F0E2CC;
+  --pink:#E6338A; --saffron:#FF9F1C; --teal:#14A89B; --violet:#6C3FC5; --brand-ink:#FFFFFF;
+  --font-head:'Yatra One',Georgia,serif; --font-body:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --radius:20px; --space:clamp(48px,8vw,92px);
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1A1026; --surface:#261838; --ink:#FFF3E0; --muted:#C2B3D4; --line:#3A2A52;
+    --pink:#FF5AA8; --saffron:#FFB547; --teal:#35D0C0; --violet:#A98BFF; --brand-ink:#1A1026; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1A1026; --surface:#261838; --ink:#FFF3E0; --muted:#C2B3D4; --line:#3A2A52;
+  --pink:#FF5AA8; --saffron:#FFB547; --teal:#35D0C0; --violet:#A98BFF; --brand-ink:#1A1026; color-scheme:dark;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.65;font-size:16.5px}
+h1,h2,h3{font-family:var(--font-head);font-weight:400;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.8rem,8vw,5rem)} h2{font-size:clamp(1.9rem,4.5vw,2.7rem)} h3{font-size:1.3rem}
+p{margin:0 0 1em;color:var(--muted)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:var(--space) 0}
+.rainbow{background:linear-gradient(90deg,var(--pink),var(--saffron),var(--teal),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Component 1: Button */
+.btn{display:inline-block;padding:14px 28px;border-radius:999px;font:600 1rem var(--font-body);text-decoration:none;border:2px solid var(--pink);cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px) rotate(-1deg)}
+.btn--primary{background:var(--pink);color:var(--brand-ink)}
+.btn--ghost{background:transparent;color:var(--pink)}
+
+/* Component 2: Section header */
+.sh{max-width:640px;margin-bottom:36px}
+.sh .eyebrow{display:inline-block;font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);margin-bottom:8px}
+
+/* Component 3: Card with colour accent (activities, schedule, tickets) */
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--accent,var(--pink));border-radius:var(--radius);padding:26px}
+.card .icon{font-size:2rem;margin-bottom:8px}
+.card p:last-child{margin-bottom:0}
+.card--featured{border-width:2px;border-top-width:6px;border-color:var(--accent,var(--pink))}
+.price{font:400 2.3rem var(--font-head);color:var(--ink)}
+.card ul{padding-left:20px;color:var(--muted);margin:0 0 18px}
+.c-pink{--accent:var(--pink)} .c-saffron{--accent:var(--saffron)} .c-teal{--accent:var(--teal)} .c-violet{--accent:var(--violet)}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:400 1.6rem var(--font-head);text-decoration:none}
+.hero{text-align:center;position:relative;overflow:hidden}
+.hero .dots{display:flex;justify-content:center;gap:10px;margin-bottom:20px}
+.hero .dots i{width:16px;height:16px;border-radius:50%;display:block}
+.hero p{max-width:560px;margin:0 auto 1.4em;font-size:1.1rem}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.meta{display:flex;gap:10px 28px;justify-content:center;flex-wrap:wrap;margin-top:32px;font-weight:500;color:var(--ink)}
+.time{font-weight:600;color:var(--accent);font-size:.9rem;margin-bottom:4px}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+.alt .card{background:var(--bg)}
+.cta-band{text-align:center}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.notes li{margin-bottom:6px}
